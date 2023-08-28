@@ -32,10 +32,11 @@ export default function AddEndPoints() {
     };
 
     return (
-        <div>
-            <div>
-                <h2>Tutorial</h2>
-                <p>Preencha os Campos de Forma Adequada:
+        <div className="">
+            <div className="bg-violet-200 flex flex-col justify-center p-5 m-12 rounded-2xl space-y-2 gap-2">
+                <h2 className="text-lg font-bold">Tutorial de como adicionar um endpoint:</h2>
+                <p className="font-semibold mb-2">Preencha os Campos de Forma Adequada:</p>
+                <p className="font-semibold text-sm">    
                 Certifique-se de preencher os campos de acordo com suas necessidades. Por exemplo:
                 <br />
                 <span>Path: /nomes</span>
@@ -45,21 +46,21 @@ export default function AddEndPoints() {
                 Response: {'{"nome": "joão"}'}</p>
                 <br />
             </div>
-            <div>
-                <h2>Create Endpoint</h2>
+            <div className="bg-violet-200 p-5 flex justify-center flex-col m-12 rounded-2xl space-y-2 gap-2">
+                <h2 className="text-lg font-bold text-center">Criar Endpoint</h2>
                 <div>
-                    <label>Path:</label>
-                    <input type="text" value={path} onChange={(e) => setPath(e.target.value)} />
+                    <label className="mr-1 font-semibold">Path:</label>
+                    <input className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl" type="text" value={path} onChange={(e) => setPath(e.target.value)} />
                 </div>
                 <div>
-                    <label>Method:</label>
-                    <input type="text" value={method} onChange={(e) => setMethod(e.target.value)} />
+                    <label className="mr-1 font-semibold">Method:</label>
+                    <input className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl" type="text" value={method} onChange={(e) => setMethod(e.target.value)} />
                 </div>
                 <div>
-                    <label>Response:</label>
-                    <input type="text" value={responseInput} onChange={(e) => setResponseInput(e.target.value)} />
+                    <label className="mr-1 font-semibold">Response:</label>
+                    <input className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl" type="text" value={responseInput} onChange={(e) => setResponseInput(e.target.value)} />
                 </div>
-                <button onClick={handleCreateEndpoint}>Create Endpoint</button>
+                <button className="bg-violet-500 hover:bg-violet-200 p-4 rounded-2xl font-bold uppercase" onClick={handleCreateEndpoint}>Criar Endpoint</button>
             </div>
         </div>
     )   

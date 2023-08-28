@@ -40,24 +40,29 @@ export default function LoginForm() {
           } else {
             // Tratar erros de login, como senha incorreta ou usuário não encontrado
             console.error("Erro de login:", data.error);
+            alert("Erro de login:", data.error)
+            
           }
         } catch (error) {
           console.error("Erro de login:", error);
+          
         }
       };
     
       return (
-        <div>
-          <h2>Login Form</h2>
-          <div>
-            <label>Username:</label>
-            <input type="text" value={username} onChange={handleUsernameChange} />
+        <div className="bg-violet-300 rounded-2xl shadow-md p-5 gap-3 space-y-4 space-x-2 flex flex-col">
+          <div className="text-center font-bold uppercase text-xl">
+            <h2>Login</h2>
           </div>
           <div>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={handlePasswordChange} />
+            <label className="mr-1">Username:</label>
+            <input className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl" type="text" value={username} onChange={handleUsernameChange} />
           </div>
-          <button onClick={handleLogin}>Login</button>
+          <div>
+            <label className="mr-1">Password:</label>
+            <input className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl" type="password" value={password} onChange={handlePasswordChange} />
+          </div>
+          <button className="bg-violet-500 hover:bg-violet-200 p-4 rounded-2xl font-bold uppercase" onClick={handleLogin}>Login</button>
         </div>
       );
 }
