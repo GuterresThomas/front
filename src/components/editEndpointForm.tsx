@@ -40,36 +40,38 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
   };
 
   return (
-    <div>
-      <h2>Edit Endpoint</h2>
-      <div>
-        <label>Path:</label>
-        <input
+    <div className="p-3">
+      <div className="text-center uppercase font-bold">
+        <h2>Edit Endpoint</h2>
+      </div>
+      <div className="m-2">
+        <label className="font-semibold mr-1">Path:</label>
+        <input  className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl"
           type="text"
           name="path"
           value={path}
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label>Method:</label>
-        <input
+      <div className="m-2">
+        <label className="font-semibold mr-1">Method:</label>
+        <input  className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl"
           type="text"
           name="method"
           value={method}
           onChange={handleInputChange}
         />
       </div>
-      <div>
-        <label>Response:</label>
-        <input
+      <div className="m-2">
+        <label className="font-semibold mr-1">Response:</label>
+        <input  className="p-2 bg-violet-100 hover:bg-violet-200 rounded-2xl"
           type="text"
           name="response"
           value={response}
           onChange={handleInputChange}
         />
       </div>
-      <button onClick={handleUpdateEndpoint}>Update Endpoint</button>
+      <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={handleUpdateEndpoint}>Update Endpoint</button>
     </div>
   );
 }
