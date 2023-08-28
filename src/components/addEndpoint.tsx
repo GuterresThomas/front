@@ -21,6 +21,7 @@ export default function AddEndPoints() {
             });
             if (createResponse.status === 201) {
                 console.log("Endpoint created successfully!");
+                alert("Endpoint criado com sucesso!")
                 // Limpar os campos após a criação bem-sucedida
                 setPath("");
                 setMethod("");
