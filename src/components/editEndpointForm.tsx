@@ -19,7 +19,7 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
 
   const handleUpdateEndpoint = async () => {
     try {
-      const updateResponse = await fetch(`http://localhost:3000/endpoints/${endpoint.id}`, {
+      const updateResponse = await fetch(`http://localhost:3000/edit-endpoint/${endpoint.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
