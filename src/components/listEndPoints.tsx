@@ -34,6 +34,9 @@ export default function ListEndPoints() {
     return(
         <div className="flex justify-center">
              <div className="m-12 p-3 bg-violet-200 rounded-xl">
+             <div className="text-center font-bold text-lg">
+                <h1>Lista de endpoints criados:</h1>
+             </div>
                 <ul>
                     {endPoints.map((endpoint) => (
                     <li key={endpoint.id}>

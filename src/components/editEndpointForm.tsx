@@ -42,7 +42,7 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
   return (
     <div className="p-3">
       <div className="text-center uppercase font-bold">
-        <h2>Edit Endpoint</h2>
+        <h2>Editar Endpoint</h2>
       </div>
       <div className="m-2">
         <label className="font-semibold mr-1">Path:</label>
@@ -71,7 +71,9 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
           onChange={handleInputChange}
         />
       </div>
-      <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={handleUpdateEndpoint}>Update Endpoint</button>
-    </div>
+        <div className="flex justify-center m-2">
+          <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={handleUpdateEndpoint}>Update Endpoint</button>
+        </div>
+      </div>
   );
 }
