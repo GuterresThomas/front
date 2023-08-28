@@ -1,9 +1,14 @@
+'use client'
 import { useState, useEffect } from "react";
 
 export default function AddEndPoints() {
+    const [path, setPath] = useState("");
+    const [method, setMethod] = useState("");
+    const [responseInput, setResponseInput] = useState(""); // Renomeada para responseInput
+
     const handleCreateEndpoint = async () => {
         try {
-            const response = await fetch('http://localhost:3000/create-endpoint', {
+            const createResponse = await fetch('http://localhost:3000/create-endpoint', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -11,15 +16,15 @@ export default function AddEndPoints() {
                 body: JSON.stringify({
                     path: path,
                     method: method,
-                    response: response,
+                    response: responseInput, // Usando a variável responseInput aqui
                 }),
             });
-            if (response.status === 201) {
+            if (createResponse.status === 201) {
                 console.log("Endpoint created successfully!");
                 // Limpar os campos após a criação bem-sucedida
                 setPath("");
                 setMethod("");
-                setResponse("");
+                setResponseInput("");
             }
         } catch (error) {
             console.error("Error creating endpoint:", error);
@@ -28,21 +33,34 @@ export default function AddEndPoints() {
 
     return (
         <div>
-            <h2>Create Endpoint</h2>
             <div>
-                <label>Path:</label>
-                <input type="text" value={path} onChange={(e) => setPath(e.target.value)} />
+                <h2>Tutorial</h2>
+                <p>Preencha os Campos de Forma Adequada:
+                Certifique-se de preencher os campos de acordo com suas necessidades. Por exemplo:
+                <br />
+                <span>Path: /nomes</span>
+                <br />
+                Method: GET
+                <br />
+                Response: {'{"nome": "joão"}'}</p>
+                <br />
             </div>
             <div>
-                <label>Method:</label>
-                <input type="text" value={method} onChange={(e) => setMethod(e.target.value)} />
+                <h2>Create Endpoint</h2>
+                <div>
+                    <label>Path:</label>
+                    <input type="text" value={path} onChange={(e) => setPath(e.target.value)} />
+                </div>
+                <div>
+                    <label>Method:</label>
+                    <input type="text" value={method} onChange={(e) => setMethod(e.target.value)} />
+                </div>
+                <div>
+                    <label>Response:</label>
+                    <input type="text" value={responseInput} onChange={(e) => setResponseInput(e.target.value)} />
+                </div>
+                <button onClick={handleCreateEndpoint}>Create Endpoint</button>
             </div>
-            <div>
-                <label>Response:</label>
-                <input type="text" value={response} onChange={(e) => setResponse(e.target.value)} />
-            </div>
-            <button onClick={handleCreateEndpoint}>Create Endpoint</button>
         </div>
-    )
-        
+    )   
 }

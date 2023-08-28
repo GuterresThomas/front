@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import EditEndpointForm from "@/components/editEndpointForm"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import {
     Accordion,
@@ -12,6 +13,7 @@ import {
 
 export default function ListEndPoints() {
     const [endPoints, setEndPoints] = useState([])
+    const [selectedEndpoint, setSelectedEndpoint] = useState(null)
 
     const fetchEndPoints = async () => {
         const response = await fetch('http://localhost:3000/endpoints')
@@ -19,6 +21,10 @@ export default function ListEndPoints() {
         setEndPoints(data)
         console.log(data)
     }
+
+    const handleEditButtonClick = (endpoint) => {
+        setSelectedEndpoint(endpoint); // Define o endpoint selecionado para edição
+      };
 
     useEffect(() => {
       fetchEndPoints()
@@ -37,14 +43,17 @@ export default function ListEndPoints() {
                                 <div><p>Method:</p>{endpoint.method}</div>
                                 
                                 <div><p>Response:</p>{JSON.stringify(endpoint.response)}</div>
+                                <br />
+                                <button onClick={() => handleEditButtonClick(endpoint)}>Edit</button>
                             </AccordionContent>
                         </AccordionItem>
-                    </Accordion>
-
-                    
+                    </Accordion>   
                 </li>
                 ))}
             </ul>
+            {selectedEndpoint && (
+            <EditEndpointForm endpoint={selectedEndpoint} onUpdate={fetchEndPoints} />
+            )}
         </div>
     )
 }
