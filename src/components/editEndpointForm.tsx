@@ -65,7 +65,7 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
         <input
           type="text"
           name="response"
-          value={response}
+          value={JSON.stringify(response)}
           onChange={handleInputChange}
         />
       </div>
