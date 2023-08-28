@@ -36,7 +36,7 @@ export default function LoginForm() {
           if (response.ok) {
             // Lógica para redirecionar ou mostrar uma mensagem de sucesso
             console.log("Login bem-sucedido!");
-            router.push("/listendpoints");
+            router.push("/userpage");
           } else {
             // Tratar erros de login, como senha incorreta ou usuário não encontrado
             console.error("Erro de login:", data.error);

@@ -58,7 +58,7 @@ export default function ListEndPoints() {
                                         {endpoint.created_at}
                                     </div>
                                     <br />
-                                    <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={() => handleEditButtonClick(endpoint)}>Edit</button>
+                                    <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={() => handleEditButtonClick(endpoint)}>Editar</button>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>   
