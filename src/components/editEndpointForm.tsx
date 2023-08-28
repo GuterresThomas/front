@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function EditEndpointForm({ endpoint, onUpdate }) {
   const [path, setPath] = useState(endpoint.path);
   const [method, setMethod] = useState(endpoint.method);
-  const [response, setResponse] = useState(endpoint.response);
+  const [response, setResponse] = useState(JSON.stringify(endpoint.response));
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -65,7 +65,7 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
         <input
           type="text"
           name="response"
-          value={JSON.stringify(response)}
+          value={response}
           onChange={handleInputChange}
         />
       </div>

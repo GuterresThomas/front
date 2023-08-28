@@ -43,6 +43,7 @@ export default function ListEndPoints() {
                                 <div><p>Method:</p>{endpoint.method}</div>
                                 
                                 <div><p>Response:</p>{JSON.stringify(endpoint.response)}</div>
+                                <div><p>Criado em:</p>{endpoint.created_at}</div>
                                 <br />
                                 <button onClick={() => handleEditButtonClick(endpoint)}>Edit</button>
                             </AccordionContent>
@@ -52,7 +53,7 @@ export default function ListEndPoints() {
                 ))}
             </ul>
             {selectedEndpoint && (
-            <EditEndpointForm endpoint={selectedEndpoint} onUpdate={fetchEndPoints} />
+            <EditEndpointForm endpoint={selectedEndpoint} onUpdate = {() => {fetchEndPoints(); window.location.reload()}}/>
             )}
         </div>
     )
