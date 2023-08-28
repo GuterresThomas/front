@@ -26,6 +26,28 @@ export default function ListEndPoints() {
         setSelectedEndpoint(endpoint); // Define o endpoint selecionado para edição
       };
 
+      const handleDeleteEndpoint = async (id) => {
+        const shouldDelete = window.confirm('Tem certeza de que deseja excluir este endpoint?');
+      
+        if (!shouldDelete) {
+          return; // Se o usuário clicar em "Cancelar", não faz nada
+        }
+      
+        try {
+          const response = await fetch(`http://localhost:3000/delete-endpoint/${id}`, {
+            method: 'DELETE',
+          });
+      
+          if (response.status === 200) {
+            console.log('Endpoint deleted successfully!');
+            fetchEndPoints(); // Atualize a lista de endpoints após a exclusão
+          }
+        } catch (error) {
+          console.error('Error deleting endpoint:', error);
+        }
+      };
+ 
+
     useEffect(() => {
       fetchEndPoints()
     }, [])
@@ -58,7 +80,12 @@ export default function ListEndPoints() {
                                         {endpoint.created_at}
                                     </div>
                                     <br />
-                                    <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold" onClick={() => handleEditButtonClick(endpoint)}>Editar</button>
+                                    <div>
+                                        
+                                        <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold m-2" onClick={() => handleEditButtonClick(endpoint)}>Editar</button>
+                                        <button className="bg-violet-500 p-2 uppercase rounded-xl hover:bg-violet-200 font-bold m-2" onClick={() => handleDeleteEndpoint(endpoint.id)}>Deletar</button>
+                                
+                                    </div>
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>   
