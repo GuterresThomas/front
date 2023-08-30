@@ -32,7 +32,8 @@ export default function EditEndpointForm({ endpoint, onUpdate }) {
       });
 
       if (updateResponse.status === 200) {
-        onUpdate(); // Chama a função para atualizar a lista de endpoints
+        onUpdate();
+        alert('Endpoint atualizado!') // Chama a função para atualizar a lista de endpoints
       }
     } catch (error) {
       console.error("Error updating endpoint:", error);
